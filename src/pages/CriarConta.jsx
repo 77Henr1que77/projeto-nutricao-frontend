@@ -2,14 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-function Login() {
+function CriarConta() {
   const navigate = useNavigate();
 
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
 
-  const entrar = async (e) => {
+  const criarConta = async (e) => {
     e.preventDefault();
     setErro("");
 
@@ -23,32 +24,30 @@ function Login() {
       return;
     }
 
-    localStorage.setItem("emailUsuario", email);
-    localStorage.setItem("senhaUsuario", senha);
-
     try {
-      const resposta = await fetch("http://127.0.0.1:8000/login", {
+      const resposta = await fetch("http://127.0.0.1:8000/criar-conta", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email, senha })
+        body: JSON.stringify({
+          nome,
+          email,
+          senha
+        })
       });
 
       const dados = await resposta.json();
 
       if (!resposta.ok) {
-        setErro(dados.detail || "Erro ao realizar login.");
+        setErro(dados.detail || "Erro ao criar conta.");
         return;
       }
 
-      localStorage.setItem("usuarioNutri", JSON.stringify(dados.usuario));
+      localStorage.setItem("emailUsuario", email);
+      localStorage.setItem("senhaUsuario", senha);
 
-      if (dados.usuario.perfil_completo) {
-        navigate("/chat");
-      } else {
-        navigate("/cadastro");
-      }
+      navigate("/cadastro");
     } catch {
       setErro("Erro ao conectar com o backend.");
     }
@@ -66,16 +65,22 @@ function Login() {
             />
           </div>
 
-          <span className="tag-login">
-            Inteligência artificial aplicada à saúde
-          </span>
+          <span className="tag-login">Criar conta</span>
 
-          <h1>Obesity Monitoring System</h1>
+          <h1>Cadastre sua conta</h1>
           <p className="subtitulo-login-tech">
-            Entre com sua conta para acessar a plataforma.
+            Crie seu acesso para começar o monitoramento nutricional.
           </p>
 
-          <form onSubmit={entrar} className="formulario-tech">
+          <form onSubmit={criarConta} className="formulario-tech">
+            <input
+              type="text"
+              placeholder="Nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              required
+            />
+
             <input
               type="email"
               placeholder="E-mail"
@@ -94,23 +99,12 @@ function Login() {
 
             {erro && <p style={{ color: "#b91c1c", margin: 0 }}>{erro}</p>}
 
-            <button type="submit">Entrar no sistema</button>
+            <button type="submit">Criar conta</button>
           </form>
-
-        <p className="aviso-login-tech">
-  Ainda não tem conta?{" "}
-  <button
-    type="button"
-    className="link-criar-conta"
-    onClick={() => navigate("/criar-conta")}
-  >
-    Criar conta
-  </button>
-</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default CriarConta;
