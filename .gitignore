@@ -7,10 +7,32 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Node / frontend
+node_modules/
+dist/
+dist-ssr/
+.vite/
 *.local
+
+# Python / backend
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Backend do projeto
+backend-nutricao/venv/
+backend-nutricao/.venv/
+backend-nutricao/__pycache__/
+backend-nutricao/*.pyc
+
+# Environment / secrets
+.env
+*.env
+backend-nutricao/.env
+
+# Banco local
+backend-nutricao/nutricao.db
 
 # Editor directories and files
 .vscode/*
