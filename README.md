@@ -1,16 +1,70 @@
-# React + Vite
+# Obesity Monitoring System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição do projeto
+O **Obesity Monitoring System** é um sistema web de apoio nutricional com inteligência artificial, desenvolvido como MVP para auxiliar usuários no acompanhamento inicial de informações relacionadas à saúde e alimentação.
 
-Currently, two official plugins are available:
+A aplicação permite:
+- criar conta
+- fazer login
+- completar perfil com idade, peso e altura
+- calcular IMC automaticamente
+- acessar um chat nutricional com IA
+- gerar um relatório inicial de apoio ao acompanhamento profissional
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O sistema **não substitui nutricionista**, sendo apenas uma ferramenta de apoio inicial.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias utilizadas
 
-## Expanding the ESLint configuration
+### Frontend
+- React
+- Vite
+- CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+- Python
+- FastAPI
+
+### Banco de dados
+- SQLite
+
+### Inteligência Artificial
+- Groq API
+
+### Containerização
+- Docker
+- Docker Compose
+
+---
+
+## Estrutura do projeto
+
+```txt
+projeto-nutricao-frontend/
+├── backend-nutricao/
+│   ├── core/
+│   ├── database/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── utils/
+│   ├── .env
+│   ├── Dockerfile
+│   ├── main.py
+│   ├── nutricao.db
+│   └── requirements.txt
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── docker-compose.yml
+├── Dockerfile.frontend
+├── index.html
+├── package.json
+└── README.md
