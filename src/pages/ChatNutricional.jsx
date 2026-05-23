@@ -5,7 +5,11 @@ import logo from "../assets/logo.png";
 function ChatNutricional() {
   const usuario = JSON.parse(localStorage.getItem("usuarioNutri")) || {};
 
-  const conversaInicial = JSON.parse(localStorage.getItem("chatNutri")) || [
+  const chatStorageKey = usuario?.email
+    ? `chatNutri_${usuario.email}`
+    : "chatNutri_temp";
+
+  const conversaInicial = JSON.parse(localStorage.getItem(chatStorageKey)) || [
     {
       autor: "ia",
       texto: "Olá! Sou seu assistente nutricional. Como posso ajudar você hoje?",
@@ -33,7 +37,7 @@ function ChatNutricional() {
     ];
 
     setConversa(conversaPadrao);
-    localStorage.setItem("chatNutri", JSON.stringify(conversaPadrao));
+    localStorage.setItem(chatStorageKey, JSON.stringify(conversaPadrao));
   };
 
   const enviarMensagem = async (e) => {
@@ -49,7 +53,7 @@ function ChatNutricional() {
     ];
 
     setConversa(conversaComUsuario);
-    localStorage.setItem("chatNutri", JSON.stringify(conversaComUsuario));
+    localStorage.setItem(chatStorageKey, JSON.stringify(conversaComUsuario));
     setMensagem("");
     setCarregando(true);
 
@@ -57,6 +61,23 @@ function ChatNutricional() {
       role: item.autor === "usuario" ? "user" : "assistant",
       content: item.texto,
     }));
+
+    const peso = Number(usuario.peso || 0);
+    const alturaCm = Number(usuario.altura_cm || 0);
+
+    const imcCalculado =
+      peso > 0 && alturaCm > 0
+        ? (peso / Math.pow(alturaCm / 100, 2)).toFixed(1)
+        : null;
+
+    const dadosUsuarioIA = {
+      nome: usuario.nome || "",
+      email: usuario.email || "",
+      idade: usuario.idade || "",
+      peso: usuario.peso || "",
+      altura_cm: usuario.altura_cm || "",
+      imc: imcCalculado || "",
+    };
 
     try {
       const resposta = await fetch("http://127.0.0.1:8000/pergunta", {
@@ -67,6 +88,7 @@ function ChatNutricional() {
         body: JSON.stringify({
           pergunta: perguntaUsuario,
           historico: historicoFormatado,
+          usuario: dadosUsuarioIA,
         }),
       });
 
@@ -84,7 +106,7 @@ function ChatNutricional() {
       ];
 
       setConversa(novaConversa);
-      localStorage.setItem("chatNutri", JSON.stringify(novaConversa));
+      localStorage.setItem(chatStorageKey, JSON.stringify(novaConversa));
     } catch {
       const novaConversa = [
         ...conversaComUsuario,
@@ -95,7 +117,7 @@ function ChatNutricional() {
       ];
 
       setConversa(novaConversa);
-      localStorage.setItem("chatNutri", JSON.stringify(novaConversa));
+      localStorage.setItem(chatStorageKey, JSON.stringify(novaConversa));
     } finally {
       setCarregando(false);
     }

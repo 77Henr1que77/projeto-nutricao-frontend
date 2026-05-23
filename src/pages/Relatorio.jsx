@@ -1,7 +1,9 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 function Relatorio() {
+  const navigate = useNavigate();
   const usuario = JSON.parse(localStorage.getItem("usuarioNutri")) || {};
 
   const [gordura, setGordura] = useState("");
@@ -75,6 +77,9 @@ function Relatorio() {
               src={logo}
               alt="Obesity Monitoring System"
               className="logo-relatorio"
+              onClick={() => navigate("/chat")}
+              style={{ cursor: "pointer" }}
+              title="Voltar para o chat"
             />
 
             <div>
