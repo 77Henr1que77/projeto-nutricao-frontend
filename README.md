@@ -77,7 +77,9 @@ projeto-nutricao-frontend/
 - relatório nutricional
 - documentação automática da API
 - execução com Docker
-```md
+`
+`
+`
 
 
 ## Rotas principais da API
