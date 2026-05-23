@@ -67,6 +67,7 @@ projeto-nutricao-frontend/
 ├── package.json
 └── README.md
 ---
+```
 ## Funcionalidades
 - criação de conta
 - login de usuário
@@ -77,9 +78,7 @@ projeto-nutricao-frontend/
 - relatório nutricional
 - documentação automática da API
 - execução com Docker
-`
-`
-`
+
 
 
 ## Rotas principais da API
