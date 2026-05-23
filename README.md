@@ -1,6 +1,6 @@
 # Obesity Monitoring System
 
-   Descrição
+## Descrição
 O **Obesity Monitoring System** é um sistema web de apoio nutricional com inteligência artificial.  
 Ele permite que o usuário:
 
@@ -15,32 +15,32 @@ Ele permite que o usuário:
 
 ---
 
-   Tecnologias utilizadas
+## Tecnologias utilizadas
 
-   Frontend
+### Frontend
 - React
 - Vite
 - CSS
 
-    Backend
+### Backend
 - Python
 - FastAPI
 
-  Banco de dados
+### Banco de dados
 - SQLite
 
-   Inteligência Artificial
+### Inteligência Artificial
 - Groq API
 
-   Containerização
+### Containerização
 - Docker
 - Docker Compose
 
 ---
 
-  Estrutura do projeto
+## Estrutura do projeto
 
-
+```txt
 projeto-nutricao-frontend/
 ├── backend-nutricao/
 │   ├── core/
@@ -66,14 +66,85 @@ projeto-nutricao-frontend/
 ├── index.html
 ├── package.json
 └── README.md
+---
+## Funcionalidades
+- criação de conta
+- login de usuário
+- cadastro de perfil
+- cálculo automático de IMC
+- chat nutricional com IA
+- histórico de chat separado por usuário
+- relatório nutricional
+- documentação automática da API
+- execução com Docker
 
-Funcionalidades
- criação de conta
- login de usuário
- cadastro de perfil
- cálculo automático de IMC
-chat nutricional com IA
-histórico de chat separado por usuário
-relatório nutricional
-documentação automática da API
-execução com Docker
+## Rotas principais da API
+- POST /criar-conta
+- POST /login
+- POST /completar-perfil
+- POST /pergunta
+- GET /
+
+Documentação automática:
+
+http://127.0.0.1:8000/docs
+
+## Como executar localmente
+## Requisitos
+- Node.js
+- Python 3.11+
+- Git
+## 1. Clonar o repositório
+
+git clone https://github.com/77Henr1que77/projeto-nutricao-frontend.git
+cd projeto-nutricao-frontend
+
+## 2. Rodar o frontend
+npm install
+npm run dev
+
+## Frontend disponível em:
+http://localhost:5173/
+
+## 3. Rodar o backend
+Entre na pasta do backend:
+
+cd backend-nutricao
+python -m venv venv
+
+Ative o ambiente virtual no PowerShell:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\venv\Scripts\Activate.ps1
+
+Instale as dependências:
+pip install -r requirements.txt
+
+Crie um arquivo .env dentro de backend-nutricao com:
+GROQ_API_KEY=sua_chave_aqui
+
+Execute o backend:
+python -m uvicorn main:app --reload
+
+Backend disponível em:
+http://127.0.0.1:8000/
+
+## Como executar com Docker
+Requisito
+-Docker Desktop
+
+Na raiz do projeto:
+docker compose up --build
+
+Frontend:
+http://localhost:5173/
+
+Backend:
+http://127.0.0.1:8000/
+
+Swagger:
+http://127.0.0.1:8000/docs
+
+## Observações
+- O sistema foi desenvolvido como MVP acadêmico.
+- A aplicação utiliza IA para responder perguntas nutricionais de forma inicial e orientativa.
+- O relatório gerado é apenas uma prévia e não substitui avaliação profissional.
