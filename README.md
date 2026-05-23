@@ -1,46 +1,46 @@
 # Obesity Monitoring System
 
-## Descrição do projeto
-O **Obesity Monitoring System** é um sistema web de apoio nutricional com inteligência artificial, desenvolvido como MVP para auxiliar usuários no acompanhamento inicial de informações relacionadas à saúde e alimentação.
+   Descrição
+O **Obesity Monitoring System** é um sistema web de apoio nutricional com inteligência artificial.  
+Ele permite que o usuário:
 
-A aplicação permite:
-- criar conta
-- fazer login
-- completar perfil com idade, peso e altura
-- calcular IMC automaticamente
-- acessar um chat nutricional com IA
-- gerar um relatório inicial de apoio ao acompanhamento profissional
+- crie uma conta
+- faça login
+- complete o perfil com idade, peso e altura
+- tenha o IMC calculado automaticamente
+- converse com um assistente nutricional com IA
+- gere um relatório inicial de apoio ao acompanhamento profissional
 
-O sistema **não substitui nutricionista**, sendo apenas uma ferramenta de apoio inicial.
+> O sistema não substitui nutricionista. Ele é uma ferramenta de apoio inicial.
 
 ---
 
-## Tecnologias utilizadas
+   Tecnologias utilizadas
 
-### Frontend
+   Frontend
 - React
 - Vite
 - CSS
 
-### Backend
+    Backend
 - Python
 - FastAPI
 
-### Banco de dados
+  Banco de dados
 - SQLite
 
-### Inteligência Artificial
+   Inteligência Artificial
 - Groq API
 
-### Containerização
+   Containerização
 - Docker
 - Docker Compose
 
 ---
 
-## Estrutura do projeto
+  Estrutura do projeto
 
-```txt
+
 projeto-nutricao-frontend/
 ├── backend-nutricao/
 │   ├── core/
@@ -49,10 +49,8 @@ projeto-nutricao-frontend/
 │   ├── routes/
 │   ├── services/
 │   ├── utils/
-│   ├── .env
 │   ├── Dockerfile
 │   ├── main.py
-│   ├── nutricao.db
 │   └── requirements.txt
 ├── public/
 ├── src/
@@ -68,3 +66,14 @@ projeto-nutricao-frontend/
 ├── index.html
 ├── package.json
 └── README.md
+
+Funcionalidades
+ criação de conta
+ login de usuário
+ cadastro de perfil
+ cálculo automático de IMC
+chat nutricional com IA
+histórico de chat separado por usuário
+relatório nutricional
+documentação automática da API
+execução com Docker
