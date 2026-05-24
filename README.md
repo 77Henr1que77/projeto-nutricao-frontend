@@ -116,7 +116,7 @@ http://127.0.0.1:8000/docs
 
 ## Variáveis de ambiente
 
-Para usar a Groq API, mude o arquivo chamado `example.env` dentro da pasta `backend-nutricao`.
+Para usar a Groq API, crie um arquivo chamado `.env` dentro da pasta `backend-nutricao`.
 
 Caminho:
 
@@ -124,12 +124,11 @@ Caminho:
 backend-nutricao/.env
 ```
 
-Conteúdo do arquivo `example.env`:
+Conteúdo do arquivo `.env`:
 
 ```env
 GROQ_API_KEY=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
 ```
-tire o 'example' ele voltará a funcionar assim.
 
 > Obs:Nunca compartilhe sua chave real da API em arquivos públicos, GitHub, prints ou README.
 
