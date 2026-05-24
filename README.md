@@ -103,8 +103,8 @@ git clone https://github.com/77Henr1que77/projeto-nutricao-frontend.git
 cd projeto-nutricao-frontend
 
 ## 2. Rodar o frontend
-npm install
-npm run dev
+- npm install
+- npm run dev
 
 ## Frontend disponível em:
 http://localhost:5173/
