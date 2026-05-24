@@ -123,7 +123,7 @@ Instale as dependências:
 pip install -r requirements.txt
 
 Crie um arquivo .env dentro de backend-nutricao com:
-GROQ_API_KEY=sua_chave_aqui
+GROQ_API_KEY=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
 
 Execute o backend:
 python -m uvicorn main:app --reload
